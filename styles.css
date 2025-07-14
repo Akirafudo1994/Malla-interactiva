@@ -1,179 +1,90 @@
-:root {
-    --primary-color: #ff69b4;
-    --primary-dark: #e6499e;
-    --primary-light: #ffb6c1;
-    --text-color: #333;
-    --light-gray: #f5f5f5;
-    --white: #ffffff;
-    --completed-color: #77dd77;
-    --locked-color: #d3d3d3;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
-    background-color: #fff5f7;
-    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #f9f9f9;
 }
 
 header {
     text-align: center;
     margin-bottom: 30px;
-    padding: 20px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    border-bottom: 2px solid #e6499e;
 }
 
 h1 {
+    color: #e6499e;
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
-#semester-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.semester {
-    background-color: var(--white);
-    border-radius: 10px;
+.semestre {
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.semester-title {
+h2 {
+    color: #e6499e;
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: var(--primary-dark);
-    border-bottom: 2px solid var(--primary-light);
     padding-bottom: 5px;
+    border-bottom: 1px solid #ffb6c1;
 }
 
-.courses-container {
+.materias-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
 }
 
-.course {
-    padding: 15px;
-    border-radius: 8px;
+.materia {
+    padding: 12px;
+    background-color: #fff5f7;
+    border-left: 4px solid #ff69b4;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.course:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.course.completed {
-    background-color: var(--completed-color);
-    color: var(--white);
-}
-
-.course.locked {
-    background-color: var(--locked-color);
-    cursor: not-allowed;
-    opacity: 0.7;
-}
-
-.course-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.course-credits {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.course-requirements {
-    font-size: 0.8rem;
-    margin-top: 5px;
-    font-style: italic;
-    opacity: 0.8;
+.materia:hover {
+    background-color: #ffd6e7;
+    transform: translateX(5px);
 }
 
 footer {
     text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: var(--primary-light);
-    border-radius: 10px;
+    margin-top: 40px;
+    padding: 15px;
+    color: #666;
+    font-size: 0.9rem;
 }
 
-#reset-btn {
-    background-color: var(--primary-dark);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-    margin-bottom: 15px;
+/* Estilos para la versión interactiva */
+.materia.completada {
+    background-color: #d4edda;
+    border-left-color: #28a745;
+    color: #155724;
 }
 
-#reset-btn:hover {
-    background-color: #c73a7d;
+.materia.bloqueada {
+    background-color: #f8f9fa;
+    border-left-color: #6c757d;
+    color: #6c757d;
+    cursor: not-allowed;
 }
 
-#total-credits {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-/* Responsive design */
 @media (max-width: 768px) {
-    .courses-container {
+    .materias-container {
         grid-template-columns: 1fr;
     }
     
     h1 {
         font-size: 1.8rem;
     }
-}
-
-/* Tooltip for requirements */
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -100px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
 }
